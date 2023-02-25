@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://map1_export.tmx" type="PackedScene" id=1]
+[ext_resource path="res://player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map1.tmx" type="PackedScene" id=3]
+[ext_resource path="res://mainscene.gd" type="Script" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 148, 92, 0, 0, 0, 0, 909, 105, 0, 0, 0, 0, 920, 609, 0, 0, 0, 0, 154, 604, 0, 0, 0, 0, 148, 92 )
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="map1" parent="." instance=ExtResource( 3 )]
+
+[node name="map1_export" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+startPosition = Vector2( 225, 30 )
+stopPosition = Vector2( 307, 268 )
+
+[node name="Player2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 628, 386 )
+startPosition = Vector2( 631, 138 )
+stopPosition = Vector2( 628, 386 )
+timeToFinish = 7
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 148, 92 )
+rotation = 0.0170784
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
+current = true
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true

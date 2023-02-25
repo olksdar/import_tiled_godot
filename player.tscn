@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://LostGarden - tileset 2.png" type="Texture" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+
+[node name="Player" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="LostGarden-Tileset2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 416, 448, 32, 64 )
+
+[node name="Tween" type="Tween" parent="."]
